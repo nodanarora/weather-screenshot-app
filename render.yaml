@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: weather-screenshot-app
+    env: node
+    plan: starter
+    buildCommand: |
+      cd frontend && npm install && npm run build && cd ../backend && npm install
+    startCommand: node server.js
+    envVars:
+      - key: PUPPETEER_SKIP_DOWNLOAD
+        value: "true"
