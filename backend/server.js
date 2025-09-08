@@ -4,6 +4,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import helmet from 'helmet';
 
+(async () => {
+  await puppeteer.createBrowserFetcher().download('latest');
+})();
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 app.use(helmet());

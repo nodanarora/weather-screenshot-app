@@ -6,4 +6,5 @@ services:
     buildCommand: |
       cd frontend && npm install --legacy-peer-deps && npm run build && cd ../backend && npm install --legacy-peer-deps
     startCommand: node server.js
-    envVars: []
+    envVars: []  # ← 空にして Puppeteer が Chromium をダウンロードできるようにする
+
