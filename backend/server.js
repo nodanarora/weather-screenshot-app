@@ -99,8 +99,10 @@ app.get('/api/screenshot', async (req, res) => {
     const results = await Promise.all(pagePromises);
     res.json(results);
   } catch (err) {
-    console.error('screenshot error', err);
-    res.status(500).json({ error: err.message });
+    console.error(err);
+    res.json([
+    { site: "error", url: "", image: null, error: err.message }
+    ]);
   } finally {
     if (browser) await browser.close();
   }

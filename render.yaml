@@ -4,8 +4,6 @@ services:
     env: node
     plan: starter
     buildCommand: |
-      cd frontend && npm install && npm run build && cd ../backend && npm install
+      cd frontend && npm install --legacy-peer-deps && npm run build && cd ../backend && npm install --legacy-peer-deps
     startCommand: node server.js
-    envVars:
-      - key: PUPPETEER_SKIP_DOWNLOAD
-        value: "true"
+    envVars: []
